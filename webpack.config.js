@@ -1,17 +1,38 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
-  mode: 'development',
+  mode: 'production',
   devtool: 'inline-source-map',
   devServer: {
-    static: './dist',
+    static: {
+      directory: path.resolve(__dirname, 'dist')
+    },
+    port: 3000,
+    hot: true,
+    compress: true,
+  },
+  entry: {
+    bundle: path.resolve(__dirname, './src/index.js'),
   },
   output: {
-    filename: 'main.js',
+    filename: '[name][contenthash].js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true
   },
-  optimization: {
-    runtimeChunk: 'single',
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Steakhouse Restaurant',
+      filename: 'index.html',
+      template: './src/template.html'
+    })
+  ]
 };
