@@ -10,7 +10,7 @@ module.exports = {
     },
     port: 3000,
     hot: true,
-    compress: true,
+    compress: true
   },
   entry: {
     bundle: path.resolve(__dirname, './src/index.js'),

@@ -1,8 +1,33 @@
-import load from './page-load.js';
+import header from './header';
+import home from './home';
+import menu from './menu';
+import contact from './contact';
+import footer from './footer';
 import './styles/style.css';
 
+const body = document.querySelector('body');
 const content = document.querySelector('#content');
 
-const initialPageContent = load();
+body.insertBefore(header(), content);
+body.appendChild(footer());
+content.appendChild(home());
 
-content.appendChild(initialPageContent);
+function changeTabs() {
+  const el = this.dataset.tab;
+
+  if (el === 'home') {
+    content.innerHTML = '';
+    content.appendChild(home());
+  }
+  if (el === 'menu') {
+    content.innerHTML = '';
+    content.appendChild(menu());
+  }
+  if (el === 'contact') {
+    content.innerHTML = '';
+    content.appendChild(contact());
+  }
+}
+
+const headerButtons = document.querySelectorAll('.nav-button');
+headerButtons.forEach(headerButton => headerButton.addEventListener('click', changeTabs));
