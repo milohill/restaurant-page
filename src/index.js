@@ -2,14 +2,12 @@ import header from './header';
 import home from './home';
 import menu from './menu';
 import contact from './contact';
-import footer from './footer';
 import './styles/style.css';
 
 const body = document.querySelector('body');
 const content = document.querySelector('#content');
 
 body.insertBefore(header(), content);
-body.appendChild(footer());
 content.appendChild(home());
 
 function changeTabs() {

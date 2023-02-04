@@ -3,6 +3,16 @@ iframe {
   display: none;
 }
 
+/* disable text to be dragged */
+*,
+*::after,
+*::before {
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+  cursor: default;
+}
+
 footer {
   display: flex;
   align-items: center;
@@ -58,7 +68,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  height: 30px;
+  height: 35px;
   width: 80px;
 
   border-radius: 5px;

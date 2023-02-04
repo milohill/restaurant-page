@@ -13,10 +13,8 @@ export default function addHeader() {
   navButtonTwo.classList.add('nav-button');
   navButtonThree.classList.add('nav-button');
 
-  logo.draggable = true;
   logo.textContent = "Steak House";
 
-  nav.draggable = true;
   nav.appendChild(navButtonOne);
   nav.appendChild(navButtonTwo);
   nav.appendChild(navButtonThree);
